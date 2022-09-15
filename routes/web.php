@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyPlaceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('my_page', function () {
-    return ('is my page');
-});
+Route::get('my_page', 'MyPlaceController@index');
