@@ -39,12 +39,17 @@ class PostController extends Controller
         dd('created');
     }
     public function update() {
-        $post = Post::find(5);
+        $post = Post::find(1);
         $post->update([
             'title' => 'update title',
             'content' => 'update content',
             'is_published' => 0
         ]);
         dd('updated');
+    }
+    public function delete() {
+        $post = Post::find(2);
+        $post->delete();
+        dd('deleted');
     }
 }

@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('post', 'PostController@index');
 Route::get('post/create', 'PostController@create');
 Route::get('post/update', 'PostController@update');
+Route::get('post/delete', 'PostController@delete');
