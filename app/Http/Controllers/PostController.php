@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::find(1);
-        dd($post->title);
+        $posts = Post::where('image', 'image_2.jpg')->get();
+        foreach($posts as $post) {
+            dump($post->title);
+        }
+        dd('end');
     }
 }
