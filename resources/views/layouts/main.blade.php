@@ -14,7 +14,7 @@
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link" href="{{ route('main.index') }}">Main</a>
-                  <a class="nav-link" href="{{ route('post.index') }}">Posts</a>
+                  <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
                   <a class="nav-link" href="{{ route('about.index') }}">About</a>
                   <a class="nav-link" href="{{ route('contact.index') }}">Contacts</a>
                 </div>
