@@ -9,22 +9,33 @@
                 <form action="{{ route('posts.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="title" class="form-label">Title</label>
-                      <input type="text" class="form-control" id="title" name="title">
+                        <label for="title" class="form-label">Title</label>
+                        <input value="{{ old('title') }}" type="text" class="form-control" id="title" name="title">
+                        @error('title')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="content" class="form-label">Content</label>
-                      <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{ old('content') }}</textarea>
+                        @error('content')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="text" class="form-control" id="image" name="image">
+                        <input value="{{ old('image') }}" type="text" class="form-control" id="image" name="image">
+                        @error('image')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-control" name="category_id" id="category">
                             @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->title}}</option>
+                                <option
+                                    {{ old('category_id') == $category->id ? ' selected' : '' }}
+                                    value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
                         </select>
                     </div>
