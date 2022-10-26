@@ -15,7 +15,7 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-                {{ $posts->links() }}
+                {{ $posts->withQueryString()->links() }}
             </div>
         </div>
     </div>
