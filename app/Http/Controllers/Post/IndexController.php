@@ -14,8 +14,15 @@ class IndexController extends BaseController
     {
 
         $data = $request->validated();
+
+        $page = $data['page'] ?? 1;
+        $perPage = $data['per_page'] ?? 10;
+
         $filter = app()->make(PostFilter::class, ['queryParams' => array_filter($data)]);
-        $posts = Post::filter($filter)->paginate(10);
-        return view('post.index', compact('posts'));
+        $posts = Post::filter($filter)->paginate($perPage, ['*'], 'page', $page);
+
+        return PostResource::collection($posts);
+
+        //return view('post.index', compact('posts'));
     }
 }
